@@ -1,0 +1,61 @@
+FSE 2020-1 -- Practica 2
+
+Nombres de los integrantes:
+Arellano Yeo Nomar Alberto
+Hernández García Luis Angel
+Vázquez Sánchez Ilse Abril
+
+Comentarios y Respuestas a las preguntas
+
+1. Instrucciones programa hello.s
+    mov	r7,#4 @ Llamadas al sistema de escritura
+    mov	r0,#1 @ stdout (monitor)
+    ldr	r1,=message @ Indica la direccion en donde se encuentra el mensaje
+    mov 	r2,#19 @Longitud de la cadena
+    svc	#0
+    mov	r7,#1 @ Llamadas al sistema exit
+    mov	r0,#0 @ stdin (teclado)
+    svc	#0 @Retorno
+       .data
+
+    message:
+              .ascii "FSE2020-1 is cool\n"
+
+    El programa se encarga de mostrar en pantalla la cadena almacenada en la
+    direccion del registro "r1", con el registro r2 podemos especificar el
+    tamaño de la cadna que será utilizada. Además se hacen uso de llamadas
+    al sistema mediante registros de propósito general para poder mostrar en
+    pantalla o terminar el mismo programa de forma correcta.
+
+2. Respuestas:
+    a) Tanto "svc" como "swi" sirven para solicitar operaciones privilegiadas o
+    acceder a las rutinas o modulos del sistema operativo para realizar retornos. Basicamente son la misma
+    instrucción con un nombre diferente, el nombre swi (software interruption)
+    fue cambiado por svc. También "bx lr" permite el retorno de una función pero
+    con la diferencia de que no salva los valores de los registros R0-R3, R12,
+    LR y PC, lo que significa que la dirección de la siguiente instrucción
+    a ejecutar se encuentra en la pila en el caso de svc y swi mientras que con
+    bx lr no.
+
+    b) "baling" es una directiva que se encarga de alinear la ubicación actual
+    en el archivo a un límite específico. El número de bytes que se deben alinear
+    deben de ser potencias de dos. Esta directiva es utilizada para asegurar
+    que los datos del código están correctamente alineados con los límites
+    apropiados, lo cual también permite utilizar la memoria caché de algunos
+    procesadores. Una dirección está alineada si los bits a su derecha son 0.
+    Una alineación incorrecta puede provocar que el procesador se detenga.
+
+    c) El set de instrucciones del ARM11 está dividido en las siguientes categorías:
+        - 4 instrucciones de salto
+        - 15 instrucciones estándar de procesamiento de datos
+        - 7 instrucciones de desplazamiento
+        - 1 instrucción de multiplicación
+        - 4 instrucciones de empacamiento y desempacamiento
+        - 2 instrucciones de acceso al registro de status
+        - 3 instrucciones diversas de procesamiento de datos
+
+    Tipos de direccionamiento
+    
+    Inmediato: Esta dado por un numero fijo que puede se sumado o restado del valor de registro base. Este es utilizado para acceder a registros que se encuentran a una distancia determinada.
+    
+    Registro: El valor esta dados por un registro de propósitp general que no puede ser el PC, este valor puede ser sumado o restado del valor de registro base. Este tipo de direccionamiento es usado para acceder a arreglos o bloques de datos.
