@@ -1,0 +1,42 @@
+Fundamentos de Sistemas Embebidos PRACTICA 3
+
+Nombres:
+	Arellano Yeo Nomar Alberto
+	Hernández García Luis Angel
+	Vázquez Sánchez Ilse Abril
+
+
+Respuesta a las preguntas:
+
+	1. ¿Cuántas formas de configurar y programar hay disponibles en la raspberry Pi?
+Configuración:
+	Para configurar y programar la raspberry Pi podemos usar:
+	* Comandos, usando la terminal con la que cuenta la raspberry
+	* Lenguaje ensamblador, usando el set de instrucciones correspondiente al procesador con el que cuenta la tarjeta
+	* Lenguaje de alto nivel, como Python, C, Java, etc.
+	En cuanto a la comunicación de la raspberry tenemos:
+	* Pines GPIO para hacer uso de entradas y salidas digitales
+	* I2C que es un estándar de comunicación diseñado par permitir que un chip pueda conversar con otro. De esta manera, podemos configurar la raspberry para conectarla con una gran variedad de chips y módulos capaces de soportar este estándar.
+	* SPI, conocido como bus serial de cuatro cables, permite encadenar mútiples dispositivos desde un solo set de pines.
+	* Por medio del estandar Ethernet en combinación con protocolos como SSH.
+	* Conexión inalambrica como Wifi o Bluetooth.
+
+	2. ¿Qué es el sistema de archivos sysfs?
+Es un sistema de archivos que nos permite interactuar con los pines GPIO de la raspberry. 
+
+Sysfs no tiene nada que ver con Raspberry, si no, con Linux. Es un sistema de archivos virtual que exporta información sobre el dispositivo y sus drivers desde el espacio del núcleo al de usuario, es parte del kernel de Linux.
+
+En el caso de Raspbian, maneja tres tipos de archivos:
+	* Archivos de control de interface
+	* Archivos propios de los GPIOs
+	* Archivo controaldor de GPIOs
+
+	3. ¿Cuáles son los lenguajes de programación más comúnes para configurar y programar los GPIO?
+
+	* Python -> lenguaje preferido para programar los GPIO
+	* Java
+	* C con la librería wiringPi
+	* Scratch y su complemento ScratchGPIO o RpiScratchIO
+	* BASIC
+	* Desde consola utilizando scripts y comandos
+

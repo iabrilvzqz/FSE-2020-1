@@ -4,7 +4,7 @@ _Repositorio correspondiente a las prácticas realizadas en la materia de Fundam
 
 ### Herramientas utilizadas
 
-_Tarjetas que se usan para el desarrollo de las prácticas_
+_Tarjetas y ambientes de desarrollo que se usan para las prácticas_
 
 * ESP 32
 * Raspberry Pi 3 B+
@@ -12,12 +12,18 @@ _Tarjetas que se usan para el desarrollo de las prácticas_
 
 ## Prácticas realizadas
 
+### Raspberry Pi
+
 * **Práctica 1:** Raspberry Pi: Linux y Lenguaje C
 * **Práctica 2:** Raspberry Pi: Lenguaje Ensamblador
+* **Práctica 3:** Raspberry Pi: Manejo de terminales GPIO
+
+### ESP32
+* **Práctica 2:** ESP32: Comunicación asíncrona (UART) 
 
 ## Autores ✒️
 
-* **Arellano Yeo Nomar Alberto**
+* **Arellano Yeo Nomar Alberto** [nomararellano](https://github.com/nomararellano)
 * **Hernández García Luis Angel** [Angel-Znoker](https://github.com/Angel-Znoker)
 * **Vázquez Sánchez Ilse Abril** [iabrilvzqz](https://github.com/iabrilvzqz)
 
