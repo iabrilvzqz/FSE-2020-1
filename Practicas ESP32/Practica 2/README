@@ -1,0 +1,39 @@
+Fundamentos de Sistemas Embebidos
+PRACTICA 2 ESP32 UART
+
+Nombres:
+	Arellano Yeo Nomar Alberto
+	Hernández García Luis Angel
+	Vázquez Sánchez Ilse Abril
+
+a) Objetivo de la práctica:
+    Comprender y establecer una comunicación en serie a través del modulo UART
+    (Universal Asynchronous Receiver Transmitter) mediante el protocolo RS-232
+    utilizado en el desarrollo de sistemas embebidos haciendo uso de la tarjeta
+    de desarrollo ESP32.
+
+b) Desarrollo:
+    La tarjeta de desarrollo ESP32 cuenta con tres módulos UART disponibles (0, 1 y 2)
+    los cuales pueden ser configurados de manera independiente para comunicarse con
+    algún otro dispositivo externo, pero en esta ocasión solo se implementó el UART 0.
+    Dicho UART es el que puede ser utilizado mediante el cable que permite la conexión
+    con una computadora y que brinda la energía eléctrica.
+
+    Para la elaboración de esta práctica es necesario establecer la configuración
+    del módulo UART (0) implementado mediante los parámetros más importantes como:
+        * Baud rate: Es la tasa de transferencia o la velocidad de transmisión de las señales (115200).
+        * Data bits: Define el tamaño de la palabra (8 bits).
+        * Paridad: Para la detección de errores, pero en esta situación se desabilitó la opción.
+        * Bit de paro: Indica el bit de paro de transmisión para una trama de datos.
+
+    Ya con la configuración establecida del UART es necesario crear las tareas
+    o procesos necesarios que se encargarán de la transmisión de datos "uart_tk_task" y
+    recepción de los mismos "uart_rx_task". En el primer proceso mencionado es necesario
+    apoyarnos de la función "sendData" para transmitir la información desde el ESP32 hasta
+    la computadora, mientras que en el segundo para poder interpretar los datos provenientes
+    se requiere de la función uart_read_bytes para almacenarlos en una variable y trabajar
+    con ella posteriormente.
+
+
+Link del video con el sistema en funcionamiento:
+https://www.youtube.com/watch?v=xF3NR0c_uJU
