@@ -17,6 +17,7 @@ _Tarjetas y ambientes de desarrollo que se usan para las prácticas_
 * **Práctica 1:** Raspberry Pi: Linux y Lenguaje C
 * **Práctica 2:** Raspberry Pi: Lenguaje Ensamblador
 * **Práctica 3:** Raspberry Pi: Manejo de terminales GPIO
+* **Práctica 4:** Raspberry Pi: Puerto serie y módulo UART
 
 ### ESP32
 * **Práctica 2:** ESP32: Comunicación asíncrona (UART) 

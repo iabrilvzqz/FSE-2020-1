@@ -1,0 +1,28 @@
+Fundamentos de Sistemas Embebidos
+PRACTICA 4 RASPBERRY PI UART
+
+Nombres:
+	Arellano Yeo Nomar Alberto
+	Hernández García Luis Angel
+	Vázquez Sánchez Ilse Abril
+
+a) Objetivos de la práctica:
+	Comprender y establecer una comunicación en serie a través del modulo UART (Universal Asynchronous Receiver Transmitter) mediante el protocolo RS-232 haciendo uso de la tarjeta de desarrollo Raspberry Pi.
+
+	Establecer una configuración básica para enviar y recibir tramas de bytes entre una computadora y la tarjeta Raspberry Pi. Además de realizar una interpretación y manipulación de la información enviada entre dichos dispositivos para lograr el desarrollo de diversas aplicaciones.
+
+b) Desarrollo:
+	La tarjeta de desarrollo Raspberry Pi cuenta exclusivamente con dos módulos UART, son utilizados para diferentes aplicaciones pero ambos se caracterizan por funcionar con 3.3 volts. En esta ocasión el UART utilizado es el PL011 con los números de GPIO 14 (TX) y 15 (RX).
+
+	Para la elaboración de la práctica se empleó el lenguaje de programación Python ya que este nos provee una biblioteca especial (serial) para el manejo de este tipo de comunicaciones. De igual forma que con la tarjeta ESP32 es necesario realizar una configuración del módulo para poder leer y escribir de manera correcta, entre dichos parámetros destacan los siguientes:
+		*Baudrate: Es la tasa de transferencia o la velocidad de transmisión de las señales (115200).
+		*timeout: Tiempo de espera para la recepión de bytes.
+		*paridad: Verificador sencillo de errores.
+		*bit de paro: Indica el fin de la sincronización de los caracteres transmitidos.
+
+	Con respecto a la primera actividad, después de haber configurado los parámetros de comunicación solo basta con hacer uso de la función "write()" para escribir en la terminal del módulo UART, pero es necesario mencionar que también se hace uso de la función "encode" la cual nos permite codificar los bytes enviados para darles una interpretación.
+
+	En la actividad número dos la función importante es "read()" ya que esta es la que toma los bytes que llegan de forma serial. Gracias a que se identifican los caracteres de un salto de línea es que podemos establecer hasta donde se debe de detener la lectura de los datos. Y finalmente, con el uso de la función "split()" esta nos permite manipular la cadena recibida para recuperar la información que se solicitó.
+
+Link del video con el sistema en funcionamiento:
+	https://www.youtube.com/watch?v=4WPNJc2mI3c&feature=youtu.be
