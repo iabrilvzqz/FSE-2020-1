@@ -12,8 +12,8 @@ import os
 # regresa el uuid
 def searchUUID(l):
 	for i in range(len(l)):
-		if l[i] == '../../sdb1':
-			return i - 2
+		if len(l[i]) > 9 and l[i][:8] == '../../sd':
+			return [i - 2, i]
 
 # función que monta el dispositivo usb
 def mountUSB():
@@ -22,7 +22,9 @@ def mountUSB():
 	result = subprocess.run(cmd, stdout=subprocess.PIPE)
 	result = result.stdout.decode('utf-8').replace("\n"," ").split(' ')
 
-	uuid = result[searchUUID(result)] # se busca el uuid del dispositivo USV
+	ind = searchUUID(result)
+	uuid = result[ind[0]] # se busca el uuid del dispositivo USV
+	disk = result[ind[1]]
 
 	# se verifica si el montaje ya se ha realizado previamente 
 	cmd = ['ls','/media/' + uuid]
@@ -30,12 +32,18 @@ def mountUSB():
 	o, e = result.communicate() # output y error
 	if len(e.decode("utf-8")) > 0: # si la longitud del error es mayor a cero significa que la USB no tiene una carpeta asociada
 		os.system("sudo mkdir /media/" + uuid) # se crea la carpeta 
-		os.system("sudo chown -R angel-znk:angel-znk /media/" + uuid) # se cambia de propietario y grupo 
+		os.system("sudo chown -R pi:pi /media/" + uuid) # se cambia de propietario y grupo 
 	
 	# se monta la unidad usb
-	os.system("sudo mount /dev/sdb1 /media/" + uuid + " -o uid=angel-znk,gid=angel-znk")
-
+	print("Montando memoria USB: " + uuid)
+	cmd = ['sudo', 'mount', disk, '/media/' + uuid, '-o', 'uid=pi,gid=pi']
+	result = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+	o, e = result.communicate()
+	if len(e.decode('utf-8')) > 0: # Si la memoria USB ya está montada
+		return "/media/" + uuid
 	return "/media/" + uuid # se regresa el path de los archivos de la memoria flash USB
 
 def umountUSB(path):
 	os.system("sudo umount " + path)
+
+mountUSB()
