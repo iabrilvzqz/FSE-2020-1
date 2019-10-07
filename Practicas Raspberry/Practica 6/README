@@ -1,0 +1,39 @@
+Fundamentos de Sistemas Embebidos
+PRACTICA 6: RASPBERRY PI: RTC Y COMUNICACIÓN SPI
+
+Nombres:
+    Arellano Yeo Nomar Alberto
+    Hernández García Luis Angel
+    Vázquez Sánchez Ilse Abril
+
+a)  Objetivo de la práctica:
+Utilizar un reloj de tiempo real DS1307, haciendo uso del protocolo I2C, para obtener de él la hora y fecha actuales para escribir una bitácora.
+
+b)  Desarrollo:
+
+La tarjeta de desarrollo Raspberry Pi no cuenta con un reloj de tiempo real, sin embargo, es posible conectar un reloj de tiempo real a la RPi haciendo uso del protocolo de comunicación I2C.
+
+Para hacer esto, debemos configurar primero el RTC en la RPi con los siguientes pasos:
+
+    1. Conectar el módulo a los pines GPIO correspondientes a la comunicación I2C con la RPi apagada
+    2. Verificar que la RPi detecta el RTC con el comando: sudo i2cdetect -y 1. En el caso del RTC DS1307, debe detectar el ID 68.
+    3. Si estamos conectados a Internet en la RPi, podemos escribir la hora del sistema en el RTC con el siguiente comando: sudo hwclock -w
+    4. Para leer la hora del RTC usamos el comando: sudo hwclock -r
+
+Una vez configurado el módulo DS1307, hicimos la segunda parte de la práctica que consistía en crear un archivo .csv, dentro de una memoria USB, con los datos entregados por el RTC con el siguiente formato:
+
+    año1, mes1, día1, horas1, minutos1, segundos1
+    año2, mes2, día2, horas2, minutos2, segundos2
+
+Lo anterior lo hicimos a partir del código creado en la práctica 5, el cual hace un archivo .csv dentro de la memoria conectada a la RPi. Este archivo es el que consideraremos como la bitácora a crear.
+
+Para obtener la cadena a escribir en dicho archivo, usamos de la librería subprocess la función: subprocess.getoutput('sudo hwclock -r').
+
+Como se puede observar, la función anterior ejecuta el comando correspondiente para leer la hora del RTC y, devuelve el resultado de dicha ejecución como cadena, por ejemplo:
+
+        2019-10-05 20:39:27.120978
+
+A esta cadena, simplemente le aplicamos la función split para obtener los datos que nos interesaban escribir en el archivo .csv en el formato indicado anteriormente.
+
+c)Link del video en youtube:
+     https://www.youtube.com/watch?v=Yoj-_kGdkiM

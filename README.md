@@ -19,6 +19,7 @@ _Tarjetas y ambientes de desarrollo que se usan para las prácticas_
 * **Práctica 3:** Raspberry Pi: Manejo de terminales GPIO
 * **Práctica 4:** Raspberry Pi: Puerto serie y módulo UART
 * **Práctica 5:** Raspberry Pi: Raspberry Pi y puerto USB
+* **Práctica 6:** Raspberry Pi: RTC y Comunicación SPI
 
 ### ESP32
 * **Práctica 2:** ESP32: Comunicación asíncrona (UART)
