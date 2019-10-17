@@ -1,0 +1,21 @@
+Fundamentos de Sistemas Embebidos
+PRACTICA 5: RASPBERRY PI Y PUERTO USB
+
+Nombres:
+	Arellano Yeo Nomar Alberto
+	Hernández García Luis Angel
+	Vázquez Sánchez Ilse Abril
+
+a)	Objetivos de la práctica:
+	Realizar el montaje de una memoria USB en un ambiente de trabajo Linux, para su posterior uso de lectura y escritura de archivos
+
+b)	Desarrollo:
+	La tarjeta de desarrollo Raspberry Pi cuenta con un sistema operativo basado en Linux. Este sistema operativo trata a las unidades de almacenamiento como archivos dentro del sistema, una vez que estos son montados.
+
+	A cada memoria USB se le es asignado un código o identificador UUID, con el que se puede diferenciar de dispositivo a dispositivo.
+
+	Para realizar la práctica, lo primero que realizamos es el montaje del dispositivo de almacenamiento USB, esto debido a que no contamos con un sistema gráfico que nos ayude a facilitar esta operación. Para ello, se identifico el UUID del dispositivo que se conecto al puerto USB, se creó una carpeta dentro de /media, con el nombre del UUID, finalmente se hizo el montaje de la memoria USB asociandolo con la carpeta creada. Todo esto se realizo con los comandos correspondientes y fue automatizado con código en Python, el cual contenía las bibliotecas necesarias para realizar esta operación.
+
+	Una vez que se realizó el montaje de la memoria USB, se hizó la segunda parte de la práctica, la cual consistía en crear un archivo .csv, dentro de la memoria USB, con datos con el siguiente formato:
+		[número],Hola USB,data[número]
+	donde número es el numero de renglón en el que se está escribiendo, iniciando en 0. Este dato junto con el nombre del archivo son pasados como argumento al ejecutar el programa.
